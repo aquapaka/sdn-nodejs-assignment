@@ -5,7 +5,6 @@ import {
   UPDATE_PRODUCT_SUCCESS_MESSAGE,
 } from "../consts/messages.js";
 import Products from "../models/products.js";
-import { Passport } from "passport";
 
 const productRouter = express.Router();
 
