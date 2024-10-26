@@ -62,7 +62,9 @@ authRouter.post("/login", async (req, res) => {
 
   // Create token
   const payload = { id: user.id };
-  const token = jwt.sign(payload, config.JWT_SECRET);
+  const token = jwt.sign(payload, config.JWT_SECRET, {
+    expiresIn: config.JWT_EXPIRES_IN,
+  });
 
   res.send({
     message: `Đăng nhập thành công`,
