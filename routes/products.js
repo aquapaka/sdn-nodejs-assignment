@@ -38,13 +38,14 @@ productRouter.post("/", async (req, res) => {
 
 productRouter.put("/:id", async (req, res) => {
   const { id } = req.params;
-  const { title, description } = req.body;
+  const { title, description, price } = req.body;
 
   const product = await Products.findByIdAndUpdate(
     { _id: id },
     {
       title: title,
       description: description,
+      price: price,
     },
     {
       new: true,
