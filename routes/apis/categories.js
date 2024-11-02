@@ -7,14 +7,14 @@ import {
   UPDATE_CATEGORY_ERROR_DUPLICATE_MESSAGE,
   UPDATE_CATEGORY_ERROR_UNDEFINED_MESSAGE,
   UPDATE_CATEGORY_SUCCESS_MESSAGE,
-} from "../consts/messages.js";
-import { MONGO_DUPLICATE_KEY_ERROR_CODE } from "../consts/mongo-error-codes.js";
-import Categories from "../models/categories.js";
+} from "../../consts/messages.js";
+import { MONGO_DUPLICATE_KEY_ERROR_CODE } from "../../consts/mongo-error-codes.js";
+import Categories from "../../models/categories.js";
 
 const categoryRouter = express.Router();
 
 categoryRouter.get("/", async (req, res) => {
-  const categories = await Categories.find({}).populate('products').exec();
+  const categories = await Categories.find({}).populate("products").exec();
   res.send(categories);
 });
 

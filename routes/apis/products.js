@@ -3,8 +3,8 @@ import {
   CREATE_PRODUCT_SUCCESS_MESSAGE,
   DELETE_PRODUCT_SUCCESS_MESSAGE,
   UPDATE_PRODUCT_SUCCESS_MESSAGE,
-} from "../consts/messages.js";
-import Products from "../models/products.js";
+} from "../../consts/messages.js";
+import Products from "../../models/products.js";
 
 const productRouter = express.Router();
 

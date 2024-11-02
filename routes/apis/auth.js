@@ -1,7 +1,7 @@
-import express from 'express'
-import Users from "../models/users.js";
-import { check, encrypt } from "../utils/encryption.js";
-import config from "../configs/config.js";
+import express from "express";
+import Users from "../../models/users.js";
+import { check, encrypt } from "../../utils/encryption.js";
+import config from "../../configs/config.js";
 import jwt from "jsonwebtoken";
 
 const authRouter = express.Router();
@@ -64,6 +64,12 @@ authRouter.post("/login", async (req, res) => {
   const payload = { id: user.id };
   const token = jwt.sign(payload, config.JWT_SECRET, {
     expiresIn: config.JWT_EXPIRES_IN,
+  });
+
+  res.cookie("token", token, {
+    maxAge: 60 * 60 * 1000,
+    httpOnly: true,
+    sameSite: "strict",
   });
 
   res.send({
